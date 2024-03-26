@@ -14,7 +14,7 @@ def get_response(user_input: str) -> str:
             # -------- command handling --------
             match command:
                 case 'requestrank':
-                    # scrape data by verifying and using the link in var: val
+                    # scrape data by verifying and using the account name in var: val
                     private_leagues: list = scrape_private_leagues(val)
                     private_league_count: int = get_league_count(private_leagues)
                     return 'You have participated in Conflux leagues during ' + str(
