@@ -11,23 +11,27 @@ intents: Intents = Intents.default()
 intents.message_content = True
 client: Client = Client(intents=intents)
 
+
 async def send_message(message: Message, user_message: str) -> None:
     if not user_message:
         print('Empty message, was intents not set?');
         return
 
     try:
-        response: str = get_response(user_message)
+        response: str = get_response(user_message, message.author.roles)
         await message.channel.send(response)
     except Exception as e:
         print(e)
+
 
 @client.event
 async def on_ready() -> None:
     print(f'{client.user} is now running!')
 
+
 @client.event
 async def on_message(message: Message) -> None:
+    # prevents a potential infinite message loop
     if message.author == client.user:
         return
 
@@ -37,8 +41,10 @@ async def on_message(message: Message) -> None:
 
     await send_message(message, user_message)
 
+
 def main() -> None:
     client.run(token=TOKEN)
+
 
 if __name__ == '__main__':
     main()
