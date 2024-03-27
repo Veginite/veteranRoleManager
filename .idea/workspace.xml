@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7690cf12-d8c6-4ec5-867c-d24cd6c5472f" name="Changes" comment="minor tweaks and functionality">
+    <list default="true" id="7690cf12-d8c6-4ec5-867c-d24cd6c5472f" name="Changes" comment="minor tweaks">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/roles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assign_user_veteran_role.py" beforeDir="false" afterPath="$PROJECT_DIR$/assign_user_veteran_role.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/league_verification.py" beforeDir="false" afterPath="$PROJECT_DIR$/league_verification.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +99,7 @@
       <workItem from="1711462986889" duration="1711000" />
       <workItem from="1711464707787" duration="352000" />
       <workItem from="1711466652325" duration="116000" />
-      <workItem from="1711503108386" duration="38728000" />
+      <workItem from="1711503108386" duration="39689000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -208,7 +205,31 @@
       <option name="project" value="LOCAL" />
       <updated>1711539629034</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="moved ID list from inline list to xml">
+      <option name="closed" value="true" />
+      <created>1711542344195</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1711542344195</updated>
+    </task>
+    <task id="LOCAL-00015" summary="minor tweaks">
+      <option name="closed" value="true" />
+      <created>1711542357015</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1711542357015</updated>
+    </task>
+    <task id="LOCAL-00016" summary="minor tweaks">
+      <option name="closed" value="true" />
+      <created>1711542386075</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1711542386075</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,25 +244,11 @@
     <MESSAGE value="minor edits" />
     <MESSAGE value="added user role assignment" />
     <MESSAGE value="minor tweaks and functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor tweaks and functionality" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assign_user_veteran_role.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assign_user_veteran_role.py</url>
-          <line>12</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="moved ID list from inline list to xml" />
+    <MESSAGE value="minor tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor tweaks" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/veteranRoleManager$main.coverage" NAME="main Coverage Results" MODIFIED="1711541284038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/veteranRoleManager$main.coverage" NAME="main Coverage Results" MODIFIED="1711543049578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

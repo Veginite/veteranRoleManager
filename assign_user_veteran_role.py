@@ -3,8 +3,7 @@ from lxml import etree
 
 
 async def assign_user_veteran_role(conflux_year_count: int, user: discord.Message.author) -> str:
-    msg: str = 'For playing Conflux during ' + str(
-        conflux_year_count) + ' years, <@' + str(user.id) + '> has been awarded the following: '
+    msg: str = ''
 
     server = user.guild
     tree = etree.parse('roles.xml')
@@ -20,6 +19,15 @@ async def assign_user_veteran_role(conflux_year_count: int, user: discord.Messag
 
     # maximum existing veteran roles are 4
     n_roles_to_add = min(conflux_year_count, 4) - matches
+
+    if matches == 4:
+        return 'The only thing beyond 4 roles is NON-EXISTENCE!'
+    elif n_roles_to_add == 0:
+        return 'You will be eligible for a new role next year!'
+
+
+    msg = 'For playing Conflux during ' + str(
+        conflux_year_count) + ' years, <@' + str(user.id) + '> has been awarded the following: '
 
     for n in range(n_roles_to_add):
         s_role = server.get_role(role_ids[matches + n])
