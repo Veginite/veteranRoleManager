@@ -1,12 +1,17 @@
 import discord
-import math
+from lxml import etree
 
 
 async def assign_user_veteran_role(conflux_year_count: int, user: discord.Message.author) -> str:
     msg: str = 'For playing Conflux during ' + str(
         conflux_year_count) + ' years, <@' + str(user.id) + '> has been awarded the following: '
-    role_ids = [1222398929996349461, 1222399062419050526, 1222399245458346045, 1222399298621407337]
+
     server = user.guild
+    tree = etree.parse('roles.xml')
+    root = tree.getroot()
+    role_ids: list = []
+    for e in root:
+        role_ids.append(int(e.attrib["id"]))
 
     matches: int = 0
     for role in user.roles:
