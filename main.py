@@ -14,11 +14,11 @@ client: Client = Client(intents=intents)
 
 async def send_message(message: Message, user_message: str) -> None:
     if not user_message:
-        print('Empty message, was intents not set?');
+        print('Empty message, was intents not set?')
         return
 
     try:
-        response: str = get_response(user_message, message.author.roles)
+        response: str = await get_response(user_message, message.author)
         await message.channel.send(response)
     except Exception as e:
         print(e)

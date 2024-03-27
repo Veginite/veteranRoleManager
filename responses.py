@@ -1,9 +1,12 @@
+import discord
+
 from scrape import scrape_private_leagues
-from league_count import get_league_count
+from conflux_year_count import get_conflux_year_count
 from league_verification import append_league
+from assign_user_veteran_role import assign_user_veteran_role
 
 
-def get_response(user_input: str, user_roles: list) -> str:
+async def get_response(user_input: str, user: discord.Message.author) -> str:
     prefix = user_input[0]
     if prefix == '§':
         # must follow the exact structure: §[command] [value]
@@ -18,13 +21,12 @@ def get_response(user_input: str, user_roles: list) -> str:
                     # scrape data by verifying and using the account name in var: val
                     private_leagues: list = scrape_private_leagues(val)
                     if len(private_leagues) > 0:
-                        private_league_count: int = get_league_count(private_leagues)
-                        return 'You have participated in Conflux leagues during ' + str(
-                        private_league_count) + ' unique years'
+                        conflux_year_count: int = get_conflux_year_count(private_leagues)
+                        return await assign_user_veteran_role(conflux_year_count, user)
                     else:
-                        return 'Error: No leagues found. Check your privacy settings.'
+                        return 'Error: No leagues found. Check your privacy settings, or pathofexile.com is down.'
                 case 'addleague':
-                    for role in user_roles:
+                    for role in user.roles:
                         if role.name == 'League Staff':
                             return append_league(val)
                     return 'You do not have permission to use this command.'
