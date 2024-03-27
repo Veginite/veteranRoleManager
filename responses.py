@@ -17,9 +17,12 @@ def get_response(user_input: str, user_roles: list) -> str:
                 case 'requestrank':
                     # scrape data by verifying and using the account name in var: val
                     private_leagues: list = scrape_private_leagues(val)
-                    private_league_count: int = get_league_count(private_leagues)
-                    return 'You have participated in Conflux leagues during ' + str(
+                    if len(private_leagues) > 0:
+                        private_league_count: int = get_league_count(private_leagues)
+                        return 'You have participated in Conflux leagues during ' + str(
                         private_league_count) + ' unique years'
+                    else:
+                        return 'Error: No leagues found. Check your privacy settings.'
                 case 'addleague':
                     for role in user_roles:
                         if role.name == 'League Staff':
