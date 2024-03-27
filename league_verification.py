@@ -4,8 +4,8 @@ from lxml import etree
 def get_league_verification(league_name: str) -> bool:
     tree = etree.parse('leagues.xml')
     root = tree.getroot()
-    for x in root:
-        if x.text == league_name:
+    for e in root:
+        if e.text == league_name:
             return True
 
     return False
