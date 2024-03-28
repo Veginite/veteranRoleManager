@@ -17,8 +17,9 @@ async def send_message(message: Message, user_message: str) -> None:
         print('Empty message, was intents not set?')
         return
 
+    response: str = ''
     try:
-        response: str = await get_response(user_message, message.author)
+        response = await get_response(user_message, message.author)
         await message.channel.send(response)
     except Exception as e:
         print(e)
