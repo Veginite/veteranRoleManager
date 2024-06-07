@@ -11,7 +11,7 @@ def create_server_connection(host_name, user_name, user_password) -> mysql.conne
             user=user_name,
             password=user_password
         )
-        print("MySQL Database connection successful!")
+        print("Database connection successful!")
     except Error as error:
         print(f"Error: '{error}'")
 

@@ -6,6 +6,6 @@ def run_db_query(connection: mysql.connector.connect(), query: str):
     cursor = connection.cursor(prepare=True)
     try:
         cursor.execute(query)
-        print(f"Query: '{query}' executed successfully!")
+        print(f"Query: '{query}' executed successfully.")
     except Error as error:
         print(f"Error: '{error}'")
