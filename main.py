@@ -3,13 +3,16 @@ import os
 from dotenv import load_dotenv
 from discord import Intents, Client, Message
 from responses import get_response
+from dbc import create_server_connection
 
 load_dotenv()
 TOKEN: Final[str] = os.getenv("DISCORD_TOKEN")
+DBPASS: Final[str] = os.getenv("DBPASS")
 
 intents: Intents = Intents.default()
 intents.message_content = True
 client: Client = Client(intents=intents)
+dbc = create_server_connection("localhost", "root", DBPASS)
 
 
 async def send_message(message: Message, user_message: str) -> None:
