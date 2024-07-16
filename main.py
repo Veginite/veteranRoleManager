@@ -27,9 +27,8 @@ async def send_message(message: Message, user_message: str) -> None:
 
     response: str = ''
     try:
-        #response = await get_response(user_message, message.author)
-        #await message.channel.send(response)
-        await message.channel.send("test")
+        response = await get_response(user_message, message.author)
+        await message.channel.send(response)
 
     except Exception as e:
         print(e)
