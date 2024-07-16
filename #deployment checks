@@ -1,2 +1,0 @@
-- main.py on_message() -- verify that the hours of the loop's timestamp and the client's timestamp match, otherwise
-the ETA will be incorrect.
