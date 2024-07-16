@@ -10,7 +10,7 @@ async def get_response(user_input: str, user: discord.Message.author) -> str:
     prefix = user_input[0]
     if prefix == '!':
         # must follow the exact structure: ![command] [value]
-        content_components = user_input.replace('§', '').split(' ', 1)
+        content_components = user_input.replace('!', '').split(' ', 1)
         if len(content_components) == 2:
             command = content_components[0]
             val = content_components[1]

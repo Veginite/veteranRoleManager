@@ -1,4 +1,3 @@
-import asyncio
 from typing import Final
 import os
 from dotenv import load_dotenv
@@ -8,7 +7,6 @@ from dbc import create_server_connection
 from queue import Queue
 from discord.ext import tasks
 import datetime as dt
-import pytz
 
 load_dotenv()
 TOKEN: Final[str] = os.getenv("DISCORD_TOKEN")

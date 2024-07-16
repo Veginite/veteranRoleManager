@@ -26,7 +26,7 @@ async def assign_user_veteran_role(conflux_year_count: int, user: discord.Messag
         return 'You will be eligible for a new role next year!'
 
     msg = (f'For playing Conflux during {str(conflux_year_count)} years, '
-           f'<@{+ str(user.id)}> has been awarded the following: ')
+           f'<@{str(user.id)}> has been awarded the following: ')
 
     for n in range(n_roles_to_add):
         s_role = server.get_role(role_ids[n])
