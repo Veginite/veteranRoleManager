@@ -8,8 +8,8 @@ from assign_user_veteran_role import assign_user_veteran_role
 
 async def get_response(user_input: str, user: discord.Message.author) -> str:
     prefix = user_input[0]
-    if prefix == '§':
-        # must follow the exact structure: §[command] [value]
+    if prefix == '!':
+        # must follow the exact structure: ![command] [value]
         content_components = user_input.replace('§', '').split(' ', 1)
         if len(content_components) == 2:
             command = content_components[0]
@@ -24,14 +24,16 @@ async def get_response(user_input: str, user: discord.Message.author) -> str:
                         conflux_year_count: int = get_conflux_year_count(private_leagues)
                         return await assign_user_veteran_role(conflux_year_count, user)
                     else:
-                        return 'Error: No leagues found. Check your privacy settings, or pathofexile.com is down.'
+                        return (f'<@{str(user.id)}> Error: No leagues found. '
+                                f'Check your privacy settings, or pathofexile.com is down.')
                 case 'addleague':
                     for role in user.roles:
                         if role.name == 'League Staff':
                             return append_league(val)
-                    return 'You do not have permission to use this command.'
+                    return f'<@{str(user.id)}> You do not have permission to use this command.'
                 case _:
-                    return 'Unknown command: "' + command + '", see pinned messages for instructions!'
+                    return f'<@{str(user.id)}> Unknown command: {command}, see pinned messages for instructions!'
             # -------- end command handling --------
         else:
-            return 'Invalid command structure: "' + user_input + '", command must follow structure: §[command] [value]'
+            return (f'<@{str(user.id)}> Invalid command structure: {user_input}, '
+                    f'command must follow structure: ![command] [value]')
