@@ -1,3 +1,4 @@
+import datetime
 from typing import Final
 import os
 from dotenv import load_dotenv
@@ -6,7 +7,7 @@ from responses import get_response
 from dbc import create_server_connection
 from queue import Queue
 from discord.ext import tasks
-import datetime as dt
+from datetime import datetime, timezone
 
 load_dotenv()
 TOKEN: Final[str] = os.getenv("DISCORD_TOKEN")
@@ -26,8 +27,9 @@ async def send_message(message: Message, user_message: str) -> None:
 
     response: str = ''
     try:
-        response = await get_response(user_message, message.author)
-        await message.channel.send(response)
+        #response = await get_response(user_message, message.author)
+        #await message.channel.send(response)
+        await message.channel.send("test")
 
     except Exception as e:
         print(e)
@@ -47,12 +49,13 @@ async def on_message(message: Message) -> None:
 
     q.put(message)
 
-    # Only handling minutes and seconds will save the hassle of considering time zones and incorrect hours
-    nextInterval = handle_message_queue.next_iteration.minute * 60 + handle_message_queue.next_iteration.second
-    now = dt.datetime.now().minute * 60 + dt.datetime.now().second
-    eta = (nextInterval - now + ((q.qsize() - 1) * handle_message_queue.seconds))
+    next_interval = handle_message_queue.next_iteration
+    next_interval = next_interval.astimezone(tz=timezone.utc)
+    now = datetime.now(tz=timezone.utc)
 
-    await message.channel.send(f'There are currently {q.qsize()} requests queued. ETA is {eta} seconds.'
+    eta = ((next_interval - now).total_seconds() + ((q.qsize() - 1) * handle_message_queue.seconds))
+
+    await message.channel.send(f'There are currently {q.qsize()} requests queued. ETA is {round(eta, 1)} seconds.'
                                + f' Additional delay will incur if your profile has more than one private league page.')
 
 
