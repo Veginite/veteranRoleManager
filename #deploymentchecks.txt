@@ -1,0 +1,2 @@
+1. add .env to root and add: DISCORD_TOKEN=""
+2. replace role IDs in roles.xml with the veteran role IDs in the Conflux Discord server
