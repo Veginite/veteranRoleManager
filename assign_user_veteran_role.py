@@ -20,6 +20,7 @@ async def assign_user_veteran_role(conflux_year_count: int, user: discord.Messag
     # highest role based on conflux_year_count may never exceed max_veteran_role_count
     highest_role_to_assign = min(conflux_year_count, max_veteran_role_count)
 
+    # get the current role IDs and put them in a list
     user_veteran_roles = [role.id for role in user.roles if role.id in role_ids]
 
     # if the top role has already been awarded, sass

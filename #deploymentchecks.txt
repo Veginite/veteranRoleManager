@@ -1,2 +1,4 @@
 1. add .env to root and add: DISCORD_TOKEN=""
 2. replace role IDs in roles.xml with the veteran role IDs in the Conflux Discord server
+3. in main.py - on_message(), replace the two IDs and with relevant channel IDs in the Conflux server
+   also, in the case bracket "# REPLACE THIS WITH "#want-to-sell" CHANNEL ID", replace the ID in the text string
