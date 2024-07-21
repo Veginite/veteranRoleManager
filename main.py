@@ -11,12 +11,12 @@ from datetime import datetime, timezone
 
 load_dotenv()
 TOKEN: Final[str] = os.getenv("DISCORD_TOKEN")
-#DBPASS: Final[str] = os.getenv("DBPASS")
+# DBPASS: Final[str] = os.getenv("DBPASS")
 
 intents: Intents = Intents.default()
 intents.message_content = True
 client: Client = Client(intents=intents)
-#dbc = create_server_connection("localhost", "root", DBPASS)
+# dbc = create_server_connection("localhost", "root", DBPASS)
 q: Queue = Queue()
 msg_counter: int = 0
 
@@ -26,9 +26,8 @@ async def send_message(message: Message, user_message: str) -> None:
         print('Empty message, was intents not set?')
         return
 
-    response: str = ''
     try:
-        response = await get_response(user_message, message.author)
+        response: str = await get_response(user_message, message.author)
         await message.channel.send(response)
 
     except Exception as e:
@@ -70,7 +69,7 @@ async def on_message(message: Message) -> None:
             if msg_counter == 15:  # adjust this parameter to change the message threshold
                 msg_counter = 0
                 await message.channel.send(
-                    "Please remember to follow rule #5 <#1264692541500952607>")  #REPLACE THIS CHANNEL ID
+                    "Please remember to follow rule #5 <#1264692541500952607>")  # REPLACE THIS CHANNEL ID
 
 
 @tasks.loop(seconds=30)
