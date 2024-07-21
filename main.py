@@ -1,12 +1,12 @@
-import datetime
 from typing import Final
 import os
 from dotenv import load_dotenv
 from discord import Intents, Client, Message
 from responses import get_response
-from dbc import create_server_connection
+# from dbc import create_server_connection
 from queue import Queue
 from discord.ext import tasks
+import datetime
 from datetime import datetime, timezone
 
 load_dotenv()
