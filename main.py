@@ -11,12 +11,12 @@ from datetime import datetime, timezone
 
 load_dotenv()
 TOKEN: Final[str] = os.getenv("DISCORD_TOKEN")
-# DBPASS: Final[str] = os.getenv("DBPASS")
+# DBPASSWORD: Final[str] = os.getenv("DBPASSWORD")
 
 intents: Intents = Intents.default()
 intents.message_content = True
 client: Client = Client(intents=intents)
-# dbc = create_server_connection("localhost", "root", DBPASS)
+# dbc = create_server_connection("localhost", "root", DBPASSWORD)
 q: Queue = Queue()
 msg_counter: int = 0
 
