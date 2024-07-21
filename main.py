@@ -58,7 +58,7 @@ async def on_message(message: Message) -> None:
                                + f' Additional delay will incur if your profile has more than one private league page.')
 
 
-@tasks.loop(seconds=20)
+@tasks.loop(seconds=30)
 async def handle_message_queue():
     if not q.empty():
         message = q.get()

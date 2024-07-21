@@ -29,7 +29,7 @@ def scrape_private_leagues(account_name: str) -> list:
         pagination_count = get_pagination_count(tree)
         leagues = tree.getroot().findall('.//*[@class="custom-league-list"]/div')
         for n in range(pagination_count - 1):
-            time.sleep(20)  # delay the next https request to prevent a potential cloudflare bot flag
+            time.sleep(30)  # delay the next https request to prevent a potential cloudflare bot flag
             p_url = url + '?page=' + str(n + 2)  # page number is counter index offset by 2
             try:
                 page = scraper.get(p_url)
