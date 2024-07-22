@@ -19,6 +19,7 @@ client: Client = Client(intents=intents)
 # dbc = create_server_connection("localhost", "root", DBPASSWORD)
 q: Queue = Queue()
 msg_counter: int = 0
+busy: bool = False
 
 
 async def send_message(message: Message, user_message: str) -> None:
@@ -74,9 +75,14 @@ async def on_message(message: Message) -> None:
 
 @tasks.loop(seconds=30)
 async def handle_message_queue():
-    if not q.empty():
+    global busy
+    if not q.empty() and not busy:
+        busy = True
+
         message = q.get()
         await send_message(message, message.content)
+
+        busy = False
 
 
 def main() -> None:
