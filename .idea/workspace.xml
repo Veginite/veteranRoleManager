@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7690cf12-d8c6-4ec5-867c-d24cd6c5472f" name="Changes" comment="- further instructions&#10;- clarification on a complex line&#10;- added behavior based on the channel ID in which the message is posted" />
+    <list default="true" id="7690cf12-d8c6-4ec5-867c-d24cd6c5472f" name="Changes" comment="failsafe">
+      <change beforePath="$PROJECT_DIR$/#deploymentchecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/#deploymentchecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leagues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/leagues.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/responses.py" beforeDir="false" afterPath="$PROJECT_DIR$/responses.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +125,8 @@
       <workItem from="1721128077346" duration="26592000" />
       <workItem from="1721174490639" duration="4594000" />
       <workItem from="1721243218830" duration="9010000" />
-      <workItem from="1721593668771" duration="5974000" />
+      <workItem from="1721593668771" duration="6187000" />
+      <workItem from="1721611882126" duration="2978000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -425,14 +432,29 @@
       <option name="project" value="LOCAL" />
       <updated>1721600566815</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="final touch">
+      <option name="closed" value="true" />
+      <created>1721600971536</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1721600971536</updated>
+    </task>
+    <task id="LOCAL-00040" summary="failsafe">
+      <option name="closed" value="true" />
+      <created>1721612052809</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1721612052809</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added league verification and discord integration for adding leagues via command" />
     <MESSAGE value="full support for paginated scraping" />
     <MESSAGE value="minor additions" />
     <MESSAGE value="added HTTPS exceptions" />
@@ -456,9 +478,11 @@
     <MESSAGE value="clarification" />
     <MESSAGE value="adjusted from 3 requests/min to 2" />
     <MESSAGE value="- further instructions&#10;- clarification on a complex line&#10;- added behavior based on the channel ID in which the message is posted" />
-    <option name="LAST_COMMIT_MESSAGE" value="- further instructions&#10;- clarification on a complex line&#10;- added behavior based on the channel ID in which the message is posted" />
+    <MESSAGE value="final touch" />
+    <MESSAGE value="failsafe" />
+    <option name="LAST_COMMIT_MESSAGE" value="failsafe" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/veteranRoleManager$main.coverage" NAME="main Coverage Results" MODIFIED="1721597758876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/veteranRoleManager$main.coverage" NAME="main Coverage Results" MODIFIED="1721614881547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

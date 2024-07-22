@@ -22,13 +22,13 @@ msg_counter: int = 0
 busy: bool = False
 
 
-async def send_message(message: Message, user_message: str) -> None:
-    if not user_message:
+async def send_message(message: Message) -> None:
+    if not message.content:
         print('Empty message, was intents not set?')
         return
 
     try:
-        response: str = await get_response(user_message, message.author)
+        response: str = await get_response(message)
         await message.channel.send(response)
 
     except Exception as e:
@@ -47,30 +47,36 @@ async def on_message(message: Message) -> None:
     if message.author == client.user:
         return
 
-    match message.channel.id:
-        # REPLACE THIS NUMBER WITH THE ID OF THE CHANNEL WHERE BOT SPAM IS ALLOCATED
-        case 1221773773339099228:
-            global q
-            q.put(message)
+    channel_id = message.channel.id
+    general_bot_spam_channel_id: int = 1221773773339099228  # replace this on deployment!
+    want_to_sell_channel_id: int = 1264691307360555089      # replace this on deployment!
+    staff_bot_spam_channel_id: int = 1264760259915026472    # replace this on deployment!
 
-            next_interval = handle_message_queue.next_iteration
-            next_interval = next_interval.astimezone(tz=timezone.utc)
-            now = datetime.now(tz=timezone.utc)
+    if channel_id == general_bot_spam_channel_id:
+        global q
+        q.put(message)
 
-            eta = ((next_interval - now).total_seconds() + ((q.qsize() - 1) * handle_message_queue.seconds))
+        next_interval = handle_message_queue.next_iteration
+        next_interval = next_interval.astimezone(tz=timezone.utc)
+        now = datetime.now(tz=timezone.utc)
 
+        eta = ((next_interval - now).total_seconds() + ((q.qsize() - 1) * handle_message_queue.seconds))
+
+        await message.channel.send(
+            f'There are currently {q.qsize()} requests queued. ETA is {round(eta, 1)} seconds.'
+            + f' Additional delay will incur if your profile has more than one private league page.')
+
+    elif channel_id == want_to_sell_channel_id:
+        global msg_counter
+        msg_counter += 1
+        if msg_counter == 15:  # adjust this parameter to change the message threshold
+            msg_counter = 0
             await message.channel.send(
-                f'There are currently {q.qsize()} requests queued. ETA is {round(eta, 1)} seconds.'
-                + f' Additional delay will incur if your profile has more than one private league page.')
+                "Please remember to follow rule #5 <#1264692541500952607>")  # REPLACE THIS CHANNEL ID
 
-        # REPLACE THIS WITH "#want-to-sell" CHANNEL ID
-        case 1264691307360555089:
-            global msg_counter
-            msg_counter += 1
-            if msg_counter == 15:  # adjust this parameter to change the message threshold
-                msg_counter = 0
-                await message.channel.send(
-                    "Please remember to follow rule #5 <#1264692541500952607>")  # REPLACE THIS CHANNEL ID
+    # staff reserved bot spam channel, bypasses the queue
+    elif channel_id == staff_bot_spam_channel_id:
+        await send_message(message)
 
 
 @tasks.loop(seconds=30)
@@ -80,7 +86,7 @@ async def handle_message_queue():
         busy = True
 
         message = q.get()
-        await send_message(message, message.content)
+        await send_message(message)
 
         busy = False
 

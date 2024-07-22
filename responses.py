@@ -6,7 +6,10 @@ from league_verification import append_league
 from assign_user_veteran_role import assign_user_veteran_role
 
 
-async def get_response(user_input: str, user: discord.Message.author) -> str:
+async def get_response(message: discord.Message) -> str:
+    user_input = message.content
+    user = message.author
+    channel_id = message.channel.id
     prefix = user_input[0]
     if prefix == '!':
         # must follow the exact structure: ![command] [value]
@@ -27,9 +30,8 @@ async def get_response(user_input: str, user: discord.Message.author) -> str:
                         return (f'<@{str(user.id)}> Error: No leagues found. '
                                 f'Check your privacy settings, or pathofexile.com is down.')
                 case 'addleague':
-                    for role in user.roles:
-                        if role.name == 'League Staff':
-                            return append_league(val)
+                    if channel_id == 1264760259915026472:  # REPLACE THIS WITH THE STAFF BOT CHANNEL ID
+                        return append_league(val)
                     return f'<@{str(user.id)}> You do not have permission to use this command.'
                 case _:
                     return f'<@{str(user.id)}> Unknown command: {command}, see pinned messages for instructions!'
