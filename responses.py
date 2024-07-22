@@ -30,7 +30,7 @@ async def get_response(message: discord.Message) -> str:
                         return (f'<@{str(user.id)}> Error: No leagues found. '
                                 f'Check your privacy settings, or pathofexile.com is down.')
                 case 'addleague':
-                    if channel_id == 1264760259915026472:  # REPLACE THIS WITH THE STAFF BOT CHANNEL ID
+                    if channel_id == 1264760259915026472:  # replace this on deployment!
                         return append_league(val)
                     return f'<@{str(user.id)}> You do not have permission to use this command.'
                 case _:
