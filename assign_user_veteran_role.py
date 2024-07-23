@@ -25,10 +25,10 @@ async def assign_user_veteran_role(conflux_year_count: int, user: discord.Messag
 
     # if the top role has already been awarded, sass
     if highest_role_to_assign == max_veteran_role_count and role_ids[max_veteran_role_count - 1] in user_veteran_roles:
-        msg = f'The only thing beyond {role_names[max_veteran_role_count - 1]} roles is NON-EXISTENCE!'
+        msg = f'<@{user.id}> The only thing beyond {role_names[max_veteran_role_count - 1]} roles is NON-EXISTENCE!'
     # if the eligible role has already been awarded, be kind
     elif role_ids[highest_role_to_assign - 1] in user_veteran_roles:
-        msg = 'You will be eligible for a new role next year!'
+        msg = f'<@{user.id}> You will be eligible for a new role next year!'
     # the user is eligible for the relevant role, award it and remove all other roles
     else:
         # remove prior roles
