@@ -25,7 +25,10 @@ async def get_response(message: discord.Message) -> str:
                     private_leagues: list = scrape_private_leagues(val)
                     if len(private_leagues) > 0:
                         conflux_year_count: int = get_conflux_year_count(private_leagues)
-                        return await assign_user_veteran_role(conflux_year_count, user)
+                        if conflux_year_count > 0:
+                            return await assign_user_veteran_role(conflux_year_count, user)
+                        else:
+                            return f'<@{str(user.id)}> Error: No valid leagues could be found on your profile.'
                     else:
                         return (f'<@{str(user.id)}> Error: No leagues found. '
                                 f'Check your privacy settings, or pathofexile.com is down.')

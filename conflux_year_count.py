@@ -7,16 +7,15 @@ def get_conflux_year_count(private_leagues: list) -> int:
         for x in private_leagues:
             league_name = x[0][0][0].text  # div/h3/a
             if get_league_verification(league_name):
-                year = ''
+                year: int = 0
                 try:
-                    year = x[2][0][1].text.split(', ')[1]  # div/div/span (splits and chooses only the league's start year)
-                except IndexError:
-                    year = 'Incorrect Format'
-
-                try:
-                    league_years.append(int(year))
-                except ValueError:
+                    year = int(x[2][0][1].text.split(', ')[1])  # div/div/span (splits and chooses only the league's start year)
+                except (IndexError, ValueError) as e:
+                    print(e)
                     print('ERROR: Invalid year, possibly due to end of the league')
+                else:
+                    league_years.append(year)
+
     else:
         return 0
 
