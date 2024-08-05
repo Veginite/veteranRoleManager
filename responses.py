@@ -25,7 +25,10 @@ async def get_response(message: discord.Message) -> str:
                     private_leagues: list = scrape_private_leagues(val)
                     if len(private_leagues) > 0:
                         conflux_year_count: int = get_conflux_year_count(private_leagues)
-                        if conflux_year_count > 0:
+                        if conflux_year_count == -1:
+                            return (f'<@{str(user.id)}> Error: One matched league has an invalid format. '
+                                    f'Contact league staff if there is any bad data.')
+                        elif conflux_year_count > 0:
                             return await assign_user_veteran_role(conflux_year_count, user)
                         else:
                             return f'<@{str(user.id)}> Error: No valid leagues could be found on your profile.'

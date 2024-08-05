@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7690cf12-d8c6-4ec5-867c-d24cd6c5472f" name="Changes" comment="failsafe">
-      <change beforePath="$PROJECT_DIR$/#deploymentchecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/#deploymentchecks.txt" afterDir="false" />
+    <list default="true" id="7690cf12-d8c6-4ec5-867c-d24cd6c5472f" name="Changes" comment="fixed an edge case scenario when conflux_year_count became 0 despite finding valid leagues, i.e the league data was invalid">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conflux_year_count.py" beforeDir="false" afterPath="$PROJECT_DIR$/conflux_year_count.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leagues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/leagues.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/responses.py" beforeDir="false" afterPath="$PROJECT_DIR$/responses.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,21 +48,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Veginite\PycharmProjects\veteranRoleManager" />
@@ -126,7 +125,10 @@
       <workItem from="1721174490639" duration="4594000" />
       <workItem from="1721243218830" duration="9010000" />
       <workItem from="1721593668771" duration="6187000" />
-      <workItem from="1721611882126" duration="2978000" />
+      <workItem from="1721611882126" duration="3319000" />
+      <workItem from="1721677537295" duration="412000" />
+      <workItem from="1721760906572" duration="9227000" />
+      <workItem from="1722892736017" duration="5207000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -448,17 +450,53 @@
       <option name="project" value="LOCAL" />
       <updated>1721612052809</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Added a channel-based method to bypass the queue">
+      <option name="closed" value="true" />
+      <created>1721615067021</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1721615067021</updated>
+    </task>
+    <task id="LOCAL-00042" summary="comment">
+      <option name="closed" value="true" />
+      <created>1721615181325</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1721615181325</updated>
+    </task>
+    <task id="LOCAL-00043" summary="added user tags">
+      <option name="closed" value="true" />
+      <created>1721771917210</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1721771917210</updated>
+    </task>
+    <task id="LOCAL-00044" summary="added user tags">
+      <option name="closed" value="true" />
+      <created>1721774577939</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1721774577939</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fixed an edge case scenario when conflux_year_count became 0 despite finding valid leagues, i.e the league data was invalid">
+      <option name="closed" value="true" />
+      <created>1722894819831</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1722894819831</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="full support for paginated scraping" />
-    <MESSAGE value="minor additions" />
-    <MESSAGE value="added HTTPS exceptions" />
-    <MESSAGE value="minor edits" />
     <MESSAGE value="added user role assignment" />
     <MESSAGE value="minor tweaks and functionality" />
     <MESSAGE value="moved ID list from inline list to xml" />
@@ -480,9 +518,34 @@
     <MESSAGE value="- further instructions&#10;- clarification on a complex line&#10;- added behavior based on the channel ID in which the message is posted" />
     <MESSAGE value="final touch" />
     <MESSAGE value="failsafe" />
-    <option name="LAST_COMMIT_MESSAGE" value="failsafe" />
+    <MESSAGE value="Added a channel-based method to bypass the queue" />
+    <MESSAGE value="comment" />
+    <MESSAGE value="added user tags" />
+    <MESSAGE value="fixed an edge case scenario when conflux_year_count became 0 despite finding valid leagues, i.e the league data was invalid" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed an edge case scenario when conflux_year_count became 0 despite finding valid leagues, i.e the league data was invalid" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assign_user_veteran_role.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assign_user_veteran_role.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assign_user_veteran_role.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/veteranRoleManager$main.coverage" NAME="main Coverage Results" MODIFIED="1721614881547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/veteranRoleManager$main.coverage" NAME="main Coverage Results" MODIFIED="1722897598031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
